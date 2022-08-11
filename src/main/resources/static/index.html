@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        .center-it {
+            padding-bottom: 1%;
+            padding-top: 1%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>
+        <marquee>---For testing purposes only---</marquee>
+    </h2>
+
+    <div class="center-it">
+        <h1>The Crypto Price Checker</h1>
+        <br>
+    </div>
+
+    <div class="center-it">
+        <form method="GET" action="/price">
+            <input type="text" name="fsym" placeholder="Coin Symbol" required>
+            <input type="text" name="tsyms" placeholder="Currency" required>
+            <button type="submit">Get Price</button>
+    </div>
+    </form>
+</body>
+
+</html>
