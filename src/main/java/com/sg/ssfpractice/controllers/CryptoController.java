@@ -1,4 +1,5 @@
 package com.sg.ssfpractice.controllers;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,17 +19,14 @@ public class CryptoController {
     @Autowired
     private CryptoService cryptoSvc;
 
-    
-
     @GetMapping
-    public String getPrice(Model model, @RequestParam String fsym , @RequestParam String tsyms) {
+    public String getPrice(Model model, @RequestParam String coin, @RequestParam String currency) {
 
-        cryptoSvc.getPrice(fsym, tsyms);
-        List<Crypto> price = cryptoSvc.getPrice(fsym,tsyms);
-        model.addAttribute("fsym",fsym);
-        model.addAttribute("tsyms", tsyms);
+        cryptoSvc.getPrice(coin.toUpperCase(), currency.toUpperCase());
+        List<Crypto> price = cryptoSvc.getPrice(coin, currency);
+        model.addAttribute("coin", coin);
+        model.addAttribute("currency", currency);
         model.addAttribute("price", price);
-
 
         return "price";
 

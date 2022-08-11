@@ -2,24 +2,23 @@ package com.sg.ssfpractice.models;
 
 public class Crypto {
 
-    private String fsym;
-    private String tsyms;
+    private String coin;
+    private String currency;
 
-
-    public String getFsym() {
-        return fsym;
+    public String getCoin() {
+        return coin;
     }
 
-    public void setFsym(String fsym) {
-        this.fsym = fsym;
+    public void setCoin(String coin) {
+        this.coin = coin;
     }
 
-    public String getTsyms() {
-        return tsyms;
+    public String getCurrency() {
+        return currency;
     }
 
-    public void setTsyms(String tsyms) {
-        this.tsyms = tsyms;
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
 }

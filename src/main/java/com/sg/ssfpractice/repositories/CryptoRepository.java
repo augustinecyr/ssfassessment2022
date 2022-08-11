@@ -20,15 +20,15 @@ public class CryptoRepository {
     @Qualifier("redislab")
     private RedisTemplate<String, String> redisTemplate;
 
-    public void save(String fsym, String tsyms, String payload ) {
+    public void save(String coin, String currency, String payload ) {
         ValueOperations<String, String> valueOp = redisTemplate.opsForValue();
-        valueOp.set(fsym.toUpperCase(), payload, Duration.ofMinutes(cacheTime));
+        valueOp.set(coin.toUpperCase(), payload, Duration.ofMinutes(cacheTime));
 
     }
     
-    public Optional<String> get (String fsym, String tsyms) {
+    public Optional<String> get (String coin, String currency) {
         ValueOperations<String, String> valueOp = redisTemplate.opsForValue();
-        String value = valueOp.get(fsym.toUpperCase());
+        String value = valueOp.get(coin.toUpperCase());
         
         if (null == value)
             return Optional.empty();

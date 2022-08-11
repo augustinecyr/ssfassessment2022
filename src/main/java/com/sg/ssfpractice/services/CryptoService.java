@@ -1,5 +1,6 @@
 package com.sg.ssfpractice.services;
 
+import java.net.URLEncoder;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -25,13 +26,13 @@ public class CryptoService {
     @Autowired
     private CryptoRepository cryptoRepo;
 
-    public List<Crypto> getPrice(String fsym, String tsyms) {
+    public List<Crypto> getPrice(String coin, String currency) {
 
-        Optional<String> opt = cryptoRepo.get(fsym, tsyms);
+        Optional<String> opt = cryptoRepo.get(coin, currency);
         String payload;
         System.out.println("--------------------");
-        System.out.printf(">>> coin: %s\n", fsym.toUpperCase());
-        System.out.printf(">>> currency: %s\n", tsyms.toUpperCase());
+        System.out.printf(">>> coin: %s\n", coin.toUpperCase());
+        System.out.printf(">>> currency: %s\n", currency.toUpperCase());
 
         if (opt.isEmpty()) {
 
@@ -40,8 +41,8 @@ public class CryptoService {
             try {
 
                 String url = UriComponentsBuilder.fromUriString(URL)
-                        .queryParam("fsym", fsym)
-                        .queryParam("tsyms", tsyms)
+                        .queryParam("fsym", URLEncoder.encode(coin, "UTF-8"))
+                        .queryParam("tsyms", URLEncoder.encode(currency, "UTF-8"))
                         .queryParam("api_key", key)
                         .toUriString();
 
@@ -55,10 +56,11 @@ public class CryptoService {
                 payload = resp.getBody();
                 System.out.println(">>> latest price: " + payload);
 
-                cryptoRepo.save(fsym, tsyms, payload);
+                cryptoRepo.save(coin, currency, payload);
             } catch (Exception ex) {
                 System.err.printf("Error: %s\n", ex.getMessage());
                 return Collections.emptyList();
+
             }
 
         } else {
