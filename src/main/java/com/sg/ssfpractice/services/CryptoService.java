@@ -35,7 +35,7 @@ public class CryptoService {
 
     public List<Crypto> getPrice(String coin, String currency) {
 
-        Crypto c = new Crypto();
+        Crypto c = new Crypto(); // create a model
         Optional<String> opt = cryptoRepo.get(coin, currency);
         String payload;
         System.out.println("--------------------");
@@ -84,15 +84,15 @@ public class CryptoService {
 
         Float price = Float.parseFloat(jsonObject.get(currency).toString());
 
-        List<Crypto> list = new LinkedList<>();
+        List<Crypto> list = new LinkedList<>(); // make a list to store payload 
 
-        c.setCoin(coin);
+        c.setCoin(coin); // set current load to variable
         c.setCurrency(currency);
         c.setPrice(price);
         
-        list.add(c);
+        list.add(c); // add object c to list
 
-        return list;
+        return list; // return back all the data
         // return null;
         // return Collections.emptyList(); - prevents prompt from repeating
         // return getPrice(coin, currency); - this will result in never ending prompts.

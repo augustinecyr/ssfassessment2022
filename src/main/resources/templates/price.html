@@ -8,11 +8,13 @@
     <title>Live Crypto Prices</title>
     <style>
         body {
-            position: absolute;
-            text-align: center;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            /* for horizontal */
             align-items: center;
-            align-self: center;
-            padding-left: 40%;
+            /* for vertical */
+            padding-top: 200px;
         }
     </style>
 </head>
@@ -23,20 +25,17 @@
         <h2>
             <marquee>---For testing purposes only---</marquee>
         </h2>
-        <a href="index.html">Back to Home</a>
+        <br><h3><a href="index.html" style="align-self: center; justify-content: center;">Back to Home</a></h3>
     </div>
     <br>
-    <h1>Price for <span data-th-text="${coin}"></span></h1><br>
-    <h3>Current Price in <span data-th-text="${currency}"></span></h3><br>
-    
-    <div data-th-each="l: ${list}" style="text-align: center;"> 
+<br>
+    <div data-th-each="l: ${list}" style=" border-style: dashed; text-align: center; padding-right: 120px; padding-left: 120px; align-self: center; ">
         <table>
             <tr>
-                
                 <td>
-                    <strong data-th-text="${l.getCoin}"></strong>
-                    <strong data-th-text="${l.getCurrency}"></strong>
-                    <strong data-th-text="${l.getPrice}"></strong>
+                    <h1>Price for <span data-th-text="${l.getCoin}"></span></h1><br>
+                    <h3>Current Price in <span data-th-text="${l.getCurrency}" style="color: red;"></span></h3><br>
+                    <h4>Latest Price: <strong data-th-text="${l.getPrice}" style="color: green;"></strong></h4>
                 </td>
             </tr>
         </table>
