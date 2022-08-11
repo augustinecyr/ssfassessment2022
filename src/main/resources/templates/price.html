@@ -29,6 +29,22 @@
     <h1>Price for <span data-th-text="${coin}"></span></h1><br>
     <h3>Current Price in <span data-th-text="${currency}"></span></h3><br>
     
-   
+    <div data-th-each="l: ${list}" style="text-align: center;"> 
+        <table>
+            <tr>
+                
+                <td>
+                    <strong data-th-text="${l.getCoin}"></strong>
+                    <strong data-th-text="${l.getCurrency}"></strong>
+                    <strong data-th-text="${l.getPrice}"></strong>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+</body>
+
+
 
 </html>

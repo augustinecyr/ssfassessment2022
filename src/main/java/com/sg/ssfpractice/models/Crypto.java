@@ -4,6 +4,7 @@ public class Crypto {
 
     private String coin;
     private String currency;
+    private Float price;
 
     public String getCoin() {
         return coin;
@@ -19,6 +20,14 @@ public class Crypto {
 
     public void setCurrency(String currency) {
         this.currency = currency;
+    }
+
+    public Float getPrice() {
+        return price;
+    }
+
+    public void setPrice(Float price) {
+        this.price = price;
     }
 
 }

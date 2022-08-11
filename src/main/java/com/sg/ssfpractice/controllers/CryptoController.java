@@ -23,10 +23,10 @@ public class CryptoController {
     public String getPrice(Model model, @RequestParam String coin, @RequestParam String currency) {
 
         cryptoSvc.getPrice(coin.toUpperCase(), currency.toUpperCase());
-        List<Crypto> price = cryptoSvc.getPrice(coin, currency);
+        List<Crypto> list = cryptoSvc.getPrice(coin, currency); // must be same from service function
         model.addAttribute("coin", coin);
         model.addAttribute("currency", currency);
-        model.addAttribute("price", price);
+        model.addAttribute("list", list);
 
         return "price";
 

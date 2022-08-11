@@ -1,7 +1,10 @@
 package com.sg.ssfpractice.services;
 
+import java.io.Reader;
+import java.io.StringReader;
 import java.net.URLEncoder;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,6 +19,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.sg.ssfpractice.models.Crypto;
 import com.sg.ssfpractice.repositories.CryptoRepository;
 
+import jakarta.json.Json;
+import jakarta.json.JsonObject;
+import jakarta.json.JsonReader;
+
 @Service
 public class CryptoService {
     private static final String URL = "https://min-api.cryptocompare.com/data/price";
@@ -28,6 +35,7 @@ public class CryptoService {
 
     public List<Crypto> getPrice(String coin, String currency) {
 
+        Crypto c = new Crypto();
         Optional<String> opt = cryptoRepo.get(coin, currency);
         String payload;
         System.out.println("--------------------");
@@ -69,9 +77,25 @@ public class CryptoService {
 
         } // cache is working fine, expires on redis after 1 minute.
 
-        // problem at payload to json
+        // problem at payload to json *SOLVED*
+        Reader strReader = new StringReader(payload);
+        JsonReader jsonReader = Json.createReader(strReader);
+        JsonObject jsonObject = jsonReader.readObject();
 
-        return Collections.emptyList();
+        Float price = Float.parseFloat(jsonObject.get(currency).toString());
+
+        List<Crypto> list = new LinkedList<>();
+
+        c.setCoin(coin);
+        c.setCurrency(currency);
+        c.setPrice(price);
+        
+        list.add(c);
+
+        return list;
+        // return null;
+        // return Collections.emptyList(); - prevents prompt from repeating
+        // return getPrice(coin, currency); - this will result in never ending prompts.
 
     }
 
