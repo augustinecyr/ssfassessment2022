@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.sg.ssfassessment.models.Crypto;
 import com.sg.ssfassessment.services.CryptoService;
 
+
 @Controller
 @RequestMapping("/price")
 public class CryptoController {
@@ -19,6 +20,7 @@ public class CryptoController {
     @Autowired
     private CryptoService cryptoSvc;
 
+ 
     @GetMapping
     public String getPrice(Model model, @RequestParam String coin, @RequestParam String currency) {
 
@@ -31,4 +33,9 @@ public class CryptoController {
         return "price";
 
     }
+
+    
+  
+
+
 }
