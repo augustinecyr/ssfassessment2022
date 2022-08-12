@@ -1,4 +1,4 @@
-package com.sg.ssfpractice.services;
+package com.sg.ssfassessment.services;
 
 import java.io.Reader;
 import java.io.StringReader;
@@ -16,8 +16,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.sg.ssfpractice.models.Crypto;
-import com.sg.ssfpractice.repositories.CryptoRepository;
+import com.sg.ssfassessment.models.Crypto;
+import com.sg.ssfassessment.repositories.CryptoRepository;
 
 import jakarta.json.Json;
 import jakarta.json.JsonObject;

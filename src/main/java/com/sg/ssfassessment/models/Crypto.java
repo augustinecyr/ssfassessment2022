@@ -1,4 +1,4 @@
-package com.sg.ssfpractice.models;
+package com.sg.ssfassessment.models;
 
 public class Crypto {
 

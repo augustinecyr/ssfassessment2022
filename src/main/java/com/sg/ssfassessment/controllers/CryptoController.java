@@ -1,4 +1,4 @@
-package com.sg.ssfpractice.controllers;
+package com.sg.ssfassessment.controllers;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.sg.ssfpractice.models.Crypto;
-import com.sg.ssfpractice.services.CryptoService;
+import com.sg.ssfassessment.models.Crypto;
+import com.sg.ssfassessment.services.CryptoService;
 
 @Controller
 @RequestMapping("/price")

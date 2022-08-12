@@ -1,4 +1,4 @@
-package com.sg.ssfpractice;
+package com.sg.ssfassessment;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

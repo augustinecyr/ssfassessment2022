@@ -1,4 +1,4 @@
-package com.sg.ssfpractice.repositories;
+package com.sg.ssfassessment.repositories;
 
 import java.time.Duration;
 import java.util.Optional;
