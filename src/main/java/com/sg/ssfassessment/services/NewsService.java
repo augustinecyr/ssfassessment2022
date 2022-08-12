@@ -25,7 +25,7 @@ import jakarta.json.JsonReader;
 
 @Service
 public class NewsService {
-    private static final String URL = "https://min-api.cryptocompare.com/data/v2/news";
+    private static final String URL = "https://min-api.cryptocompare.com/data/v2/news/";
 
     @Value("${API_KEY}")
     private String key;
@@ -33,7 +33,7 @@ public class NewsService {
     @Autowired
     private NewsRepository newsRepo;
 
-    public List<News> getArticles(String categories ) {
+    public List<News> getArticles(String categories) {
 
         News n = new News();
 
@@ -77,13 +77,28 @@ public class NewsService {
             payloadArticle = opt.get();
             System.out.printf(">>> Cached Article: %s\n", payloadArticle);
 
-        }
+        }   // TERMINAL SUCCESSFULLY READ PAYLOAD
 
-       
- 
-         // return null;
-          return Collections.emptyList(); // prevents prompt from repeating
-         // return getPrice(coin, currency); // this will result in never ending prompts.
+
+
+     //   Reader strReader = new StringReader(payloadArticle);
+      // JsonReader jsonReader = Json.createReader(strReader);
+      //  JsonObject jsonObject = jsonReader.readObject();
+      
+
+      
+
+      //  List<News> newslist = new LinkedList<>(); // make a list to store payload
+
+      // n.setCategories(categories); // set current load to variable
+      
+      //  newslist.add(n); // add object c to list
+        
+
+       // return newslist; // return back all the data
+        // return null;
+         return Collections.emptyList(); // prevents prompt from repeating
+        // return getPrice(coin, currency); // this will result in never ending prompts.
 
     }
 
