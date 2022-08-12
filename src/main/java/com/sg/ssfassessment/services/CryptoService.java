@@ -73,7 +73,7 @@ public class CryptoService {
 
         } else {
             payload = opt.get();
-            System.out.printf(">>>> last cached price: %s\n", payload);
+            System.out.printf(">>>> last cached price: %s\n", payload); // cache expires in 20 seconds
 
         } // cache is working fine, expires on redis after 1 minute.
 

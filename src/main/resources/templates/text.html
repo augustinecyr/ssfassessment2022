@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Latest News Articles</title>
     <style>
-        body {
+        .center-it {
             margin: auto;
             display: flex;
             justify-content: center;
@@ -21,12 +21,25 @@
 
 
 <body>
-    <div>
-        <br>
-        <h3><a href="index.html" style="align-self: center; justify-content: center;">Back to Home</a></h3>
+
+
+    <h3><a href="index.html">Back to Home</a></h3>
+
+    <div class="center-it" data-th-each="n: ${newslist}"
+        style=" border-style: dashed; text-align: center; padding-right: 120px; padding-left: 120px; align-self: center; ">
+        <table>
+            <tr>
+                <td>
+                    <h1>Articles for <span data-th-text="${n.getCategories}"></span></h1><br>
+                    <span data-th-text="${n.getId}"></span>
+                  <!--   <span data-th-text="${n.getArticle}"></span> -->
+
+
+                </td>
+            </tr>
+        </table>
+
     </div>
-    <br>
-     
 
 </body>
 

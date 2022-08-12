@@ -19,7 +19,6 @@ import com.sg.ssfassessment.models.News;
 import com.sg.ssfassessment.repositories.NewsRepository;
 
 import jakarta.json.Json;
-import jakarta.json.JsonArray;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonReader;
 
@@ -76,28 +75,32 @@ public class NewsService {
         } else {
             payloadArticle = opt.get();
             System.out.printf(">>> Cached Article: %s\n", payloadArticle);
+            // caching works as well, e.g get DOGE on redis cli , expire in 1 minute
 
-        }   // TERMINAL SUCCESSFULLY READ PAYLOAD
+        } // TERMINAL SUCCESSFULLY READ PAYLOAD
+
+        // testing conversion and display to html
+        // code works but payload will be displayed as a whole chunk of data...
+
+        Reader strReader = new StringReader(payloadArticle);
+        JsonReader jsonReader = Json.createReader(strReader);
+        JsonObject jsonObject = jsonReader.readObject();
+
+        String article = jsonObject.toString();
+        // last resort is using this to find the id
+        String id = article.toString().substring(79, 94);
 
 
+        List<News> newslist = new LinkedList<>(); // make a list to store payload
 
-     //   Reader strReader = new StringReader(payloadArticle);
-      // JsonReader jsonReader = Json.createReader(strReader);
-      //  JsonObject jsonObject = jsonReader.readObject();
-      
+        n.setCategories(categories); // set current load to variable
+        n.setArticle(article);
+        n.setId(id);
 
-      
+        newslist.add(n); // add object n to list
 
-      //  List<News> newslist = new LinkedList<>(); // make a list to store payload
-
-      // n.setCategories(categories); // set current load to variable
-      
-      //  newslist.add(n); // add object c to list
-        
-
-       // return newslist; // return back all the data
-        // return null;
-         return Collections.emptyList(); // prevents prompt from repeating
+        return newslist; // return back all the data
+        // return Collections.emptyList(); // prevents prompt from repeating
         // return getPrice(coin, currency); // this will result in never ending prompts.
 
     }

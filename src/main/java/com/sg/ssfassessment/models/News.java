@@ -1,5 +1,7 @@
 package com.sg.ssfassessment.models;
 
+
+
 public class News {
     private String id;
     private String publishdate;
@@ -9,6 +11,15 @@ public class News {
     private String body;
     private String tags;
     private String categories;
+    private String article;
+
+    public String getArticle() {
+        return article;
+    }
+
+    public void setArticle(String article) {
+        this.article = article;
+    }
 
     public String getId() {
         return id;

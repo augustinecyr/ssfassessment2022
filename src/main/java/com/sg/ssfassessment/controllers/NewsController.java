@@ -25,6 +25,7 @@ public class NewsController {
         List<News> newslist = newsSvc.getArticles(categories);
         model.addAttribute("categories", categories);
         model.addAttribute("newslist", newslist);
+        
 
         return "text";
     }

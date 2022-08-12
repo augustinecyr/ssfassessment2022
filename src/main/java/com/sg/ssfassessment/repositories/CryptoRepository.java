@@ -22,7 +22,7 @@ public class CryptoRepository {
 
     public void save(String coin, String currency, String payload ) {
         ValueOperations<String, String> valueOp = redisTemplate.opsForValue();
-        valueOp.set(coin.toUpperCase(), payload, Duration.ofMinutes(cacheTime));
+        valueOp.set(coin.toUpperCase(), payload, Duration.ofSeconds(cacheTime));
 
     }
     
