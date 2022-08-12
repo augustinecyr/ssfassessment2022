@@ -9,7 +9,14 @@ public class News {
     private String body;
     private String tags;
     private String categories;
-    
+    private String data;
+
+    public String getData() {
+        return data;
+    }
+    public void setData(String data) {
+        this.data = data;
+    }
     public String getId() {
         return id;
     }
