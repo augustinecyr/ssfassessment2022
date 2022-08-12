@@ -75,7 +75,7 @@ public class NewsService {
         } else {
             payloadArticle = opt.get();
             System.out.printf(">>> Cached Article: %s\n", payloadArticle);
-            // caching works as well, e.g get DOGE on redis cli , expire in 1 minute
+            // caching works , e.g get DOGE on redis cli , expire in 1 minute
 
         } // TERMINAL SUCCESSFULLY READ PAYLOAD
 
@@ -88,14 +88,14 @@ public class NewsService {
 
         String article = jsonObject.toString();
         // last resort is using this to find the id
-        String id = article.toString().substring(79, 94);
-
+       // String id = article.toString().substring(79, 94);
+        // String publishdate = article.toString().substring(136, 158);
 
         List<News> newslist = new LinkedList<>(); // make a list to store payload
 
         n.setCategories(categories); // set current load to variable
-        n.setArticle(article);
-        n.setId(id);
+        n.setArticle(article); // this prints the entire list of articles
+        
 
         newslist.add(n); // add object n to list
 

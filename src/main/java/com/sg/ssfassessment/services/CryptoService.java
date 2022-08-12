@@ -84,12 +84,12 @@ public class CryptoService {
 
         Float price = Float.parseFloat(jsonObject.get(currency).toString());
 
-        List<Crypto> list = new LinkedList<>(); // make a list to store payload 
+        List<Crypto> list = new LinkedList<>(); // make a list to store payload
 
         c.setCoin(coin); // set current load to variable
         c.setCurrency(currency);
         c.setPrice(price);
-        
+
         list.add(c); // add object c to list
 
         return list; // return back all the data
